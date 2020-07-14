@@ -8,17 +8,12 @@ pipeline {
   stages {
     stage('Cloning our Git') {
       steps {
-      git 'https://github.com/JakeQuilty/secretless-jenkins-test.git'
+        git 'https://github.com/JakeQuilty/secretless-jenkins-test.git'
       }
     }
-    stage('Building our image') {
+    stage('Tests') {
       steps{
-        
-      }
-    }
-    stage('Deploy our image') {
-      steps{
-        
+        sh './test.sh'
       }
     }
     stage('Cleaning up') {
