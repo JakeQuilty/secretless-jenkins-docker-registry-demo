@@ -6,11 +6,6 @@ pipeline {
   } 
   agent any
   stages {
-    stage('Installing Dependencies') {
-      steps{
-        sh './bin/install-deps.sh'
-      }
-    }
     stage('Listing Repo Images') {
       steps {
         sh './bin/list-private-registry.sh'
