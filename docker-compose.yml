@@ -1,0 +1,19 @@
+version: '3'
+services:
+    jenkins:
+        image: jenkins/jenkins:latest
+        container_name: jenkins_server
+        ports:
+            - "8080:8080"
+            - "50000:50000"
+        volumes:
+            - ./conf/jenkins_home:/var/jenkins_home:rw
+    secretless:
+        image: cyberark/secretless-broker:latest
+        container_name: secretless_server
+        ports:
+            - "8021:8021"
+        volumes:
+            - ./conf/secretless.yml:/secretless.yml
+        environment:
+            REGISTRY_TOKEN:
